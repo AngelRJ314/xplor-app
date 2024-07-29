@@ -30,9 +30,20 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: true }} />
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
         <Stack.Screen name="categories" options={{ headerShown: false }}/>
+        <Stack.Screen name="index" options={{ headerShown: false }}/>
+        <Stack.Screen name="home" options={{ headerShown: false }}/>
+        <Stack.Screen name="nightgallery" options={{ headerShown: false }}/>
+        <Stack.Screen name="reserve" options={{ headerShown: false }}/>
+        <Stack.Screen name="plaza" options={{ headerShown: false }}/>
+        <Stack.Screen name="park" options={{ headerShown: false }}/>
+        <Stack.Screen name="bakery" options={{ headerShown: false }}/>
+        <Stack.Screen name="profile" options={{ headerShown: false }}/>
+        <Stack.Screen name="music" options={{ headerShown: false }}/>
+        <Stack.Screen name="maple" options={{ headerShown: false }}/>
+        <Stack.Screen name="flowers" options={{ headerShown: false }}/>
       </Stack>
     </ThemeProvider>
   );
