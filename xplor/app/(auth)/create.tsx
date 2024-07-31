@@ -32,7 +32,7 @@ const CreateAccount = () => {
             <Image source={require("@/assets/images/arrow.png")} style={style.arrow}/>
         </Pressable>
       </View>
-      <Text style={style.header1}> Create Your Account </Text>
+      <Text style={style.header1}> Become a Xplorer  </Text>
       <Text style={style.header2}>
         {" "}
         Begin your journey, so glad to have you!
@@ -82,7 +82,7 @@ const style = StyleSheet.create({
     marginLeft: 10,
     fontSize: 18,
     fontStyle: "normal",
-    fontWeight: "bold",
+    fontWeight: 400,
     position: "absolute"
   },
 

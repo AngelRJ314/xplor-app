@@ -2,6 +2,11 @@ import { StyleSheet, Text, View, ScrollView, Pressable, Image } from 'react-nati
 import React from 'react';
 import { router } from 'expo-router';
 import VisitingPage from '@/components/VisitingPage';
+import * as Linking from 'expo-linking';
+
+const onPressFunctionLink = () => {
+  Linking.openURL("https://www.google.com/maps/place/Lower+Angel's+Point/@34.0794201,-118.2543365,15z/data=!3m1!4b1!4m6!3m5!1s0x80c2c78994bc7511:0xb1c4259c259627c4!8m2!3d34.0794028!4d-118.2440368!16s%2Fg%2F11hdqvrmqw?entry=ttu");
+}
 
 const nightgallery = () => {
     return (
@@ -9,6 +14,7 @@ const nightgallery = () => {
         <VisitingPage
         image={"https://lh3.googleusercontent.com/p/AF1QipMNdJ00-fERPdBm2IZg-DbUVAMvWSmGGoK9S_ym=s1360-w1360-h1020"}
         />
+      
         <Image style={style.grad} source={require("@/assets/images/parkgradient.png")}/>
         <View style={style.fullslide}/>
         <View style={style.halfslide}/>
@@ -16,7 +22,7 @@ const nightgallery = () => {
         <Text style={style.text}> Lower Angel's Point </Text>
           <Text style={style.description}> Lower Angel's Point in Elysian Park offers breathtaking views of the LA skyline and surrounding landscape. It's a popular spot for locals and tourists seeking panoramic vistas and a tranquil escape, featuring hiking trails and picnic areas for outdoor recreation and relaxation.
           </Text>
-        <Pressable style={style.addresscontainer}>
+        <Pressable onPress={onPressFunctionLink} style={style.addresscontainer}>
           <Text style={style.address}> 2050 Imperial Street, Los Angeles, CA, 90021</Text>
         </Pressable>
     </View>

@@ -6,7 +6,6 @@ import { useState } from "react";
 import { FA6Style } from "@expo/vector-icons/build/FontAwesome6";
 import { router } from "expo-router";
 
-
 export default function App() {
   const [categories, setCategories] = useState([]);
   const [next, setNext] = useState(false);
@@ -21,20 +20,29 @@ export default function App() {
 
       setNext(newCategories.length > 2);
 
-      console.log("more than 2?", newCategories.length > 2)
+      console.log("more than 2?", newCategories.length > 2);
       console.log("Selected Categories", newCategories);
       return newCategories;
     });
   };
   const onPressFunctionNext = () => {
     console.log("Next pressed");
-    router.replace("/home")
+    // router.replace("/home")
+    router.replace({
+      pathname: "/home",
+      params: {
+        categories,
+      },
+    });
   };
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.header}> What Are You </Text>
       <Text style={styles.iheader}> Interested In? </Text>
-      <Text style={styles.miniHeader}> Please select 3 or more this will help us </Text>
+      <Text style={styles.miniHeader}>
+        {" "}
+        Please select 3 or more this will help us{" "}
+      </Text>
       <Text style={styles.iminiHeader}> understand you better </Text>
       <View style={styles.buttons}>
         <CategoryButton
@@ -51,7 +59,7 @@ export default function App() {
         />
         <CategoryButton
           addCategory={() => anyname("Site Seeing")}
-          title="Site Seeing"
+          title="Sight Seeing"
           image={require("@/assets/images/Seeing.jpg")}
           style={styles.box}
         />
@@ -75,7 +83,7 @@ export default function App() {
         />
         <CategoryButton
           addCategory={() => anyname("Dining")}
-          title="Dining"
+          title="Food"
           image={require("@/assets/images/Food.jpg")}
           style={styles.box}
         />
@@ -94,7 +102,10 @@ export default function App() {
       <View style={{ alignItems: "center" }}>
         <Pressable
           onPress={onPressFunctionNext}
-          style={[styles.nextbox, next ? styles.nextboxEnabled : styles.nextboxDisabled]}
+          style={[
+            styles.nextbox,
+            next ? styles.nextboxEnabled : styles.nextboxDisabled,
+          ]}
           disabled={!next}
         >
           <Text style={styles.nexttext}> Next </Text>
@@ -200,13 +211,13 @@ const styles = StyleSheet.create({
   },
 
   nextboxEnabled: {
-    backgroundColor: 'black',
+    backgroundColor: "black",
     borderWidth: 3,
     borderRadius: 10.55,
     borderColor: "#000000",
   },
   nextboxDisabled: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
 
   nexttext: {

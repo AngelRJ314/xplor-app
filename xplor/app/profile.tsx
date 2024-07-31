@@ -44,7 +44,7 @@ const Profile = () => {
                 </Pressable>
             {/* </View> */}
             <View>
-                <Text style={style.bookmarktext}> Bookmarks: Next To Explore </Text>
+                <Text style={style.bookmarktext}>Next To Explore </Text>
                 <Pressable onPress={onPressFunctionReserve}>
                 <Image style={style.image} source={"https://images.squarespace-cdn.com/content/v1/58d2c08f725e25221a206ef3/1583285753191-T3MFQ3RKSR1L2I73YQVQ/the-reserve_21743836568_o.jpg"}/>
                 </Pressable>

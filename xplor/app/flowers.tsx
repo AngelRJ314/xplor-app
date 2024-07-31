@@ -2,6 +2,11 @@ import { StyleSheet, Text, View, ScrollView, Pressable, Image } from 'react-nati
 import React from 'react';
 import { router } from 'expo-router';
 import VisitingPage from '@/components/VisitingPage';
+import * as Linking from 'expo-linking';
+
+const onPressFunctionLink = () => {
+  Linking.openURL('https://www.google.com/maps/place/Los+Angeles+Flower+District/@34.038457,-118.2609413,15z/data=!3m1!4b1!4m6!3m5!1s0x80c2c6337bfc2ea1:0x320faca468602c2a!8m2!3d34.0384396!4d-118.2506416!16s%2Fm%2F04yc6jy?entry=ttu');
+}
 
 const flower = () => {
     return (
@@ -10,10 +15,10 @@ const flower = () => {
         image={"https://lh3.googleusercontent.com/p/AF1QipPte9Zh6dLy7_ZhVxPlPveeOJ80VhPnq9FsCH_A=s1360-w1360-h1020"}
         />
         <Image style={style.grad} source={require("@/assets/images/flowersgradient.png")}/> 
-        <Text style={style.text}> The Flower District </Text>
+        <Text style={style.text}> Los Angeles Flower District </Text>
         <Text style={style.description}> The Los Angeles Flower District in downtown LA is a lively hub known for its vibrant atmosphere and diverse array of flowers, plants, and floral supplies. Spanning several blocks, it features both wholesale and retail vendors offering fresh-cut flowers, exotic plants, and decorative accessories. Popular among florists, event planners, and flower enthusiasts, it's renowned for its extensive selection and competitive prices, making it a must-visit for floral arrangements and gardening.
         </Text>
-        <Pressable style={style.addresscontainer}>
+        <Pressable onPress={onPressFunctionLink} style={style.addresscontainer}>
           <Text style={style.address}> 846 San Julian St, Los Angeles, CA 90014 </Text>
         </Pressable>
     </View>

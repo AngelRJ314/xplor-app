@@ -2,6 +2,11 @@
  import React from 'react';
  import { router } from 'expo-router';
  import VisitingPage from '@/components/VisitingPage';
+ import * as Linking from 'expo-linking';
+
+const onPressFunctionLink = () => {
+  Linking.openURL('https://www.google.com/maps/place/The+Reserve/@34.0447201,-118.2622121,15z/data=!3m1!4b1!4m6!3m5!1s0x80c2c63545599d4b:0xc53cafb3eeb64883!8m2!3d34.0447027!4d-118.2519124!16s%2Fg%2F11bwcldkb_?entry=ttu');
+}
 
  const reserve = () => {
     return (
@@ -17,7 +22,7 @@
           <Text style={style.text}> The Reserve </Text>
           <Text style={style.description}> The Reserve is a prestigious private club nestled in downtown Los Angeles, known for its luxurious ambiance and exclusive offerings. Members enjoy fine dining, elegant lounges, and personalized concierge services, making it a sought-after destination for professionals and individuals seeking a refined social experience.
           </Text>
-          <Pressable style={style.addresscontainer}>
+          <Pressable onPress={onPressFunctionLink} style={style.addresscontainer}>
           <Text style={style.address}> 650 South Spring Street, Los Angeles, CA, 90014</Text>
           </Pressable>
     </View>

@@ -44,6 +44,10 @@ export default function RootLayout() {
         <Stack.Screen name="music" options={{ headerShown: false }}/>
         <Stack.Screen name="maple" options={{ headerShown: false }}/>
         <Stack.Screen name="flowers" options={{ headerShown: false }}/>
+        <Stack.Screen name="food" options={{ headerShown: false }}/>
+        <Stack.Screen name="history" options={{ headerShown: false }}/>
+        <Stack.Screen name="art" options={{ headerShown: false }}/>
+        <Stack.Screen name="contribution" options={{ headerShown: false }}/>
       </Stack>
     </ThemeProvider>
   );

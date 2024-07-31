@@ -26,7 +26,7 @@ import {
       };
 
     return (
-        <View>
+        <View style={style.container}>
             <Pressable onPress={onPressFunctionArrowCreate}>
                 <Image source={require("@/assets/images/arrow.png")} style={style.arrow}/>
             </Pressable>
@@ -37,6 +37,10 @@ import {
             <TextInput style={style.inpute}  />
             <Text style={style.password}> Password </Text>
             <TextInput style={style.inputp}  secureTextEntry />
+            <View style={style.bar}/>
+            <Text style={style.or}> or </Text>
+            <View style={style.bar2}/>
+            <Image style={style.gm}source={require("@/assets/images/gmail.png")}/>
             <Pressable onPress={onPressFunctionLogin} style={style.loginbox}>
                 <Text style={style.login}>
                     Login
@@ -49,6 +53,30 @@ import {
   export default Login
 
   const style=StyleSheet.create({
+
+    container: {
+      backgroundColor: "#FFFFFF",
+      flex: 1,
+    },
+
+    or: {
+      color: "#A6A5A5",
+      marginTop: 704,
+      marginLeft: 204,
+      fontSize: 17,
+      fontStyle: "normal",
+      fontWeight: "bold",
+      position: "absolute",
+    },
+
+    gm: {
+      width: 48,
+      height: 48,
+      marginTop: 742,
+      marginLeft: 191,
+      position: "absolute",
+    },
+
     header: {
         marginTop: 194,
         marginLeft: 41,
@@ -70,6 +98,24 @@ import {
         fontStyle: "normal",
         fontWeight: 400,
         position: "absolute"
+    },
+
+    bar2: {
+      width: 177,
+      height: 1,
+      marginTop: 715,
+      marginLeft: 18,
+      backgroundColor: "#A6A5A5",
+      position: "absolute"
+    },
+
+    bar: {
+      width: 177,
+      height: 1,
+      marginTop: 715,
+      marginLeft: 236,
+      backgroundColor: "#A6A5A5",
+      position: "absolute",
     },
 
     inpute: {

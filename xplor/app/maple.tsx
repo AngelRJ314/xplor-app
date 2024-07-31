@@ -2,6 +2,11 @@ import { StyleSheet, Text, View, ScrollView, Pressable, Image } from 'react-nati
 import React from 'react';
 import { router } from 'expo-router';
 import VisitingPage from '@/components/VisitingPage';
+import * as Linking from 'expo-linking';
+
+const onPressFunctionLink = () => {
+  Linking.openURL('https://www.google.com/maps/place/The+Music+Center/@34.056974,-118.2585134,15z/data=!3m1!4b1!4m6!3m5!1s0x80c2c65223b446e7:0x68bfeaf6a4a2af95!8m2!3d34.0569567!4d-118.2482137!16zL20vMDJmcW4y?entry=ttu');
+}
 
 const maple = () => {
     return (
@@ -14,7 +19,7 @@ const maple = () => {
         <Text style={style.text}> Maple Plaza</Text>
         <Text style={style.description}> Maple Plaza is a welcoming outdoor space located in downtown Los Angeles, offering a serene environment amidst the urban landscape. It features shaded seating areas, lush greenery, and possibly a fountain or artwork, providing a tranquil retreat for visitors. Maple Plaza serves as a gathering spot for relaxation, meetings, or simply enjoying a peaceful moment outdoors.
         </Text>
-        <Pressable style={style.addresscontainer}>
+        <Pressable onPress={onPressFunctionLink} style={style.addresscontainer}>
           <Text style={style.address}> 401 E 12th St, Los Angeles, CA 90015 </Text>
         </Pressable>
     </View>

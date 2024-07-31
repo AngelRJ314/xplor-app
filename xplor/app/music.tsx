@@ -1,19 +1,25 @@
-import { StyleSheet, Text, View, ScrollView, Pressable, Image } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Pressable, Image, } from 'react-native'
 import React from 'react';
 import { router } from 'expo-router';
 import VisitingPage from '@/components/VisitingPage';
+import * as Linking from 'expo-linking';
+
+const onPressFunctionLink = () => {
+  Linking.openURL('https://www.google.com/maps/place/The+Music+Center/@34.056974,-118.2585134,15z/data=!3m1!4b1!4m6!3m5!1s0x80c2c65223b446e7:0x68bfeaf6a4a2af95!8m2!3d34.0569567!4d-118.2482137!16zL20vMDJmcW4y?entry=ttu');
+}
 
 const music = () => {
     return (
     <View style={style.container}>
-        <VisitingPage title="The Music Center" 
-        text="The Music Center in downtown LA is a prestigious performing arts complex with iconic venues like Walt Disney Concert Hall and Ahmanson Theatre. Known for its cultural significance and architectural splendor, it hosts a wide range of performances, from symphonies and operas to ballets and Broadway shows, making it a vibrant hub for community engagement and artistic excellence." 
-        image={"https://dza2a2ql7zktf.cloudfront.net/binaries-cdn/dqzqcuqf9/image/fetch/q_auto,dpr_auto,c_fill,f_auto,w_auto/https://d2u3kfwd92fzu7.cloudfront.net/asset/cms/Art_Basel_OVN_Los_Angeles_April_Bey_Gavlak1.jpg"}
-        descriptionStyle={style.description}
-        textStyle={style.text}
+        <VisitingPage 
+        image={require("@/assets/images/image 5.png")}
         />
-        <Pressable style={style.addresscontainer}>
-          <Text style={style.address}> 809 N Broadway, Los Angeles, CA 90012 </Text>
+        <Image style={style.grad} source={require("@/assets/images/musicgradient.png")}/> 
+        <Text style={style.text}> The Music Center </Text>
+        <Text style={style.description}> The Music Center in downtown LA is a prestigious performing arts complex with iconic venues like Walt Disney Concert Hall and Ahmanson Theatre. Known for its cultural significance and architectural splendor, it hosts a wide range of performances, from symphonies and operas to ballets and Broadway shows, making it a vibrant hub for community engagement and artistic excellence.
+        </Text>
+        <Pressable onPress={onPressFunctionLink} style={style.addresscontainer}>
+          <Text style={style.address}> 135 N Grand Ave, Los Angeles, CA 90012 </Text>
         </Pressable>
     </View>
     )
@@ -34,7 +40,7 @@ const style = StyleSheet.create ({
         fontStyle: "normal",
         fontWeight: "normal",
         marginLeft: 20,
-        marginTop: 732,
+        marginTop: 679,
         position: "absolute",
     },
 
@@ -44,7 +50,7 @@ const style = StyleSheet.create ({
         width: 382,
         height: 85,
         marginLeft: 19,
-        marginTop: 648,
+        marginTop: 595,
         color: "#FFFFFF",
         fontStyle: "normal",
         fontWeight: "bold",
@@ -75,7 +81,7 @@ const style = StyleSheet.create ({
       height: 58,
       // alignItems: "center",
       // justifyContent: "center",
-      marginTop: 839,
+      marginTop: 831,
       marginLeft: 18,
       borderRadius: 12,
       backgroundColor: "rgba(25, 118, 210, 0.74)",
