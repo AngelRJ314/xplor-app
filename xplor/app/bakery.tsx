@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, ScrollView, Pressable, Image } from 'react-native'
-import React from 'react';
+import { StyleSheet, Text, View, ScrollView, Pressable, Image, Alert } from 'react-native'
+import React, { useState } from 'react';
 import { router } from 'expo-router';
 import VisitingPage from '@/components/VisitingPage';
 import * as Linking from 'expo-linking';
@@ -15,18 +15,56 @@ const imagesArray = [
   "https://s3-alpha-sig.figma.com/img/cf03/9098/9c9809071e745513492ef1b8b8cb7d51?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EyQZ2yDD2nza4S9Edoue5uIrc-Viqrga8yxmv5fWEaMy8290PWiLXn2UkjzLGYBEwALSkHd3jTKpuXazB~BxQvaSONjqHGvDPI4~Ik6ksGWEuA-1-0UqX85akq177CWESCMYjyi0LB3yfESFX~epSghVRmYjzYpHTjE2qYJQKnfv7gdxOY0ac4DF0VA05VqKPFaHDhoTnpDd1RRx36caQ0x69mIHe6uERA3kz50VSpg8SIP3qM3FcPj9yzijFH7pJQ85GLHuBw1qAnqfJaVz4WePvT9elMhtMgoqkFuj~VQ7e0NIgBFFP9ivF08pJt7KjYgxp76tUX3G8a06XCZGVg__",
 ];
 
+const onPressFunctionBookmark = () => {
+  Alert.alert("Bookmark Saved")
+  console.log("Bookmark")
+};
+
+const onPressFunctionHomeArrow = () => { 
+  router.back()
+};
+
 const reserve = () => {
+  
+  const [index, setIndex] = useState(0)
+
    return (
      <View style={style.container}>
-        <CustomCarousel imageArray={imagesArray} />
-       <VisitingPage
-      //  image={"https://lh3.googleusercontent.com/p/AF1QipM_wqdl2lUk_ggFqC_gRC34MFj2ufYIPKeUuANH=s1360-w1360-h1020"}
-       />
+        <CustomCarousel imageArray={imagesArray} setIndex={setIndex}/>
+       <Pressable style={style.homearrow} onPress={onPressFunctionHomeArrow}>
+          <Image source={require('@/assets/images/homearrow.png')} style={style.homearrow}/>
+        </Pressable>
+        <View
+        style={[
+          style.fullslide,
+          {
+            backgroundColor: index == 0 ? "white" : "rgba(255, 255, 255, 0.50)",
+          },
+        ]}
+      />
+      {/* <View style={style.halfslide} /> */}
+      <View
+        style={[
+          style.halfslide,
+          {
+            backgroundColor: index == 1 ? "white" : "rgba(255, 255, 255, 0.50)",
+          },
+        ]}
+      />
+      <View
+        style={[
+          style.halfslide2,
+          {
+            backgroundColor: index == 2 ? "white" : "rgba(255, 255, 255, 0.50)",
+          },
+        ]}
+      />
         <Image style={style.grad} source={require("@/assets/images/bakerygradient.png")}/>
-        <View style={style.fullslide}/>
-        <View style={style.halfslide}/>
-        <View style={style.halfslide2}/>
+        <Pressable style={style.bookc} onPress={onPressFunctionBookmark}>
+        <Image source={require("@/assets/images/book.png")} style={style.book}/>
+        </Pressable>
         <Text style={style.text}> Queen's Bakery </Text>
+        <Image source={require("@/assets/images/bakerystar.png")} style={style.stars}/>
           <Text style={style.description}> Queen's Bakery in downtown LA offers a delightful assortment of freshly baked goods and pastries. Known for its cozy atmosphere and quality ingredients, it's the perfect spot to enjoy artisan breads, cakes, cookies, and savory treats, providing a relaxing break in the heart of the city.
           </Text>
        <Pressable onPress={onPressFunctionLink} style={style.addresscontainer}>
@@ -43,6 +81,14 @@ const style = StyleSheet.create({
         flex: 1,
        // alignItems: "center",
         // justifyContent: "center",
+   },
+
+   stars: {
+    height: 26,
+    width: 156,
+    top: 673,
+    left: 19,
+    position: "absolute",
    },
 
    description: {
@@ -66,11 +112,31 @@ const style = StyleSheet.create({
    fontSize: 24,
    position: "absolute",
 },
-bookmark: {
+
+bookc: {
   width: 43,
   height: 43,
-  marginTop: 625,
-  marginLeft: 371,
+  marginTop: 0,
+  // left: 370,
+  // top: 619,
+  position: "absolute",
+},
+
+book: {
+  width: 43,
+  height: 43,
+  left: 370,
+  top: 619,
+  position: "absolute",
+},
+
+homearrow: {
+  width: 43,
+  height: 43,
+  marginTop: 40,
+  marginBottom: 516,
+  marginLeft: 15,
+  borderWidth: 0,
   position: "absolute",
 },
 

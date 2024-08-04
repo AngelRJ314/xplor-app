@@ -8,18 +8,29 @@ import Profile from "./profile";
 import Foodhome from "./food";
 import ArtHome from "./art";
 import HistoryHome from "./history";
+import ProPlus from "@/components/ProPlus";
+import Parkshome from "./parks";
+import Sighthome from "./sights";
+import Nighthome from "./nightlife";
+import Shophome from "./shopping";
+import Musichome from "./musica";
 
 const home = () => {
   const [foodActive, setFoodActive] = useState(false);
   const [historyActive, setHistoryActive] = useState(false);
   const [artActive, setArtActive] = useState(false);
-  // const [foodActive, setFoodActive] = useState(false);
-  // const [reserveActive, setReserveActive] = useState(false);
+  const [parksActive, setParksActive] = useState(false);
+  const [sightActive, setSightActive] = useState(false);
+  const [shoppingActive, setShoppingActive] = useState(false);
+  const [nightActive, setNightActive] = useState(false);
+  const [musicActive, setMusicActive] = useState(false);
+  const [allActive, setAllActive] = useState(false);
 
   const local = useLocalSearchParams();
   const categories = local.categories;
 
-  const categoriesArray = categories.split(",");
+  const categoriesArray = (categories || "").split(",");
+  // const categoriesArray = categories.split(',');
 
   // console.log("These are the params", Object.keys(local));
 
@@ -35,6 +46,21 @@ const home = () => {
       }
       if (category == "Art") {
         setArtActive(true);
+      }
+      if (category == "Parks") {
+        setParksActive(true);
+      }
+      if (category == "Site Seeing") {
+        setSightActive(true);
+      }
+      if (category == "Shopping") {
+        setShoppingActive(true);
+      }
+      if (category == "Nightlife") {
+        setNightActive(true);
+      }
+      if (category == "Music") {
+        setMusicActive(true);
       }
     });
     // }
@@ -56,10 +82,6 @@ const home = () => {
     router.push("/park");
   };
 
-  const onPressFunctionProfile = () => {
-    router.push("/profile");
-  };
-
   const onPressFunctionBakery = () => {
     router.push("/bakery");
   };
@@ -76,157 +98,106 @@ const home = () => {
     router.push("/flowers");
   };
 
+  const onPressFunctionAll = () => {
+    {
+      setAllActive(!allActive) 
+      setArtActive(true);
+      setFoodActive(true);
+      setHistoryActive(true);
+      setParksActive(true);
+      setSightActive(true);
+      setNightActive(true);
+      setShoppingActive(true);
+      setMusicActive(true);
+    }
+  };
+
   const onPressFunctionFood = () => {
     {
-      foodActive ? setFoodActive(false) : setFoodActive(true);
+      // foodActive ? setFoodActive(false) : setFoodActive(true);
+      setFoodActive(!foodActive);
     }
-    // setFoodActive(true);
-    // router.push("/food");
   };
 
   const onPressFunctionHistory = () => {
     {
-      historyActive ? setHistoryActive(false) : setHistoryActive(true);
-    } // router.push("/history");
+      // historyActive ? setHistoryActive(false) : setHistoryActive(true);
+      setHistoryActive(!historyActive);
+    } 
   };
 
   const onPressFunctionArt = () => {
     {
-      artActive ? setArtActive(false) : setArtActive(true);
+      // artActive ? setArtActive(false) : setArtActive(true);
+      setArtActive(!artActive);
     }
-    // setArtActive(true);
-    // router.push("/art");
   };
 
-  const onPressFunctionPlus = () => {
-    router.push("/contribution");
+  const onPressFunctionParks = () => {
+    {
+      setParksActive(!parksActive);
+      // parksActive ? setParksActive(false) : setParksActive(true);
+    }
+  };
+
+  const onPressFunctionSight = () => {
+    {
+      // historyActive ? setHistoryActive(false) : setHistoryActive(true);
+      setSightActive(!sightActive);
+    } 
   };
 
   return (
     <View style={style.container}>
-      <View>
-        <View style={style.logocontainer}>
-        <Pressable style={style.profilec} onPress={onPressFunctionProfile}>
-            <Image
-              source={require("@/assets/images/profile.png")}
-              style={style.profile}
-            />
+      <View style={style.logocontainer}>
+        <Image
+          source={require("@/assets/images/beglogo.png")}
+          style={style.homeimage}
+        />
+        <Text style={style.xplor}> Xplor </Text>
+        {/* <ProPlus/> */}
+        <ScrollView
+          horizontal={true}
+        >
+          <Pressable onPress={onPressFunctionAll} style={style.bcontainer}>
+            <Text style={style.text}> All </Text>
           </Pressable>
-          <Pressable onPress={onPressFunctionPlus}>
-            <Image
-              source={require("@/assets/images/plus.png")}
-              style={style.plus}
-            />
+          <Pressable onPress={onPressFunctionFood} style={style.fcontainer}>
+            <Text style={style.text}> Food </Text>
           </Pressable>
-          <Image
-            source={require("@/assets/images/beglogo.png")}
-            style={style.homeimage}
-          />
-          <Text style={style.xplor}> Xplor </Text>
-          <ScrollView horizontal>
-            <Pressable style={style.bcontainer}>
-              <Text style={style.text}> All </Text>
-            </Pressable>
-            <Pressable onPress={onPressFunctionFood} style={style.fcontainer}>
-              <Text style={style.text}> Food </Text>
-            </Pressable>
-            <Pressable
-              onPress={onPressFunctionHistory}
-              style={style.hcontainer}
-            >
-              <Text style={style.text}> History </Text>
-            </Pressable>
-            <Pressable onPress={onPressFunctionArt} style={style.acontainer}>
-              <Text style={style.text}> Art </Text>
-            </Pressable>
-            <Pressable style={style.pcontainer}>
-              <Text style={style.text}> Parks </Text>
-            </Pressable>
-          </ScrollView>
-        </View>
+          <Pressable onPress={onPressFunctionHistory} style={style.hcontainer}>
+            <Text style={style.text}> History </Text>
+          </Pressable>
+          <Pressable onPress={onPressFunctionArt} style={style.acontainer}>
+            <Text style={style.text}> Art </Text>
+          </Pressable>
+          <Pressable onPress={onPressFunctionParks} style={style.pcontainer}>
+            <Text style={style.text}> Parks </Text>
+          </Pressable>
+          <ProPlus/>
+        </ScrollView>
       </View>
+      {/* <View style={style.pincontainer}> 
+      <Pressable onPress={onPressFunctionNight1}>
+            <Image source={"https://dza2a2ql7zktf.cloudfront.net/binaries-cdn/dqzqcuqf9/image/fetch/q_auto,dpr_auto,c_fill,f_auto,w_auto/https://d2u3kfwd92fzu7.cloudfront.net/asset/cms/Art_Basel_OVN_Los_Angeles_April_Bey_Gavlak1.jpg"} style={style.nightgallery}/>
+            <Image source={require("@/assets/images/pin.png")} style={style.pin}/>
+      </Pressable>
+      <Pressable onPress={onPressFunctionReserve} style={style.bakerycontainer}>
+            <Image source={"https://s3-alpha-sig.figma.com/img/3aeb/ba28/7694a93f688a677c0a740f556043e7ac?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Qp1zBJFGPw1QUCt6Jb6MITkoOuPHta5MOJnfbAKae8U1sKle27laP1~4P88sBxwBDCrj4UQduM5xhCW93psXLWRYJX9NV2XSux4I55c8n1csVFdJUNVUF2DRIRqXLEdtzVglSFEM-bJqVrMKcTDS1~-D9~C8i6IkCkpsyjLoDJfbKezaFZhopkj1WLdj1uJzR6-3lYc4UEaaQHqVBNAQfHzUE4nFXOXP8rJM6YxYxMOP5hR~qHBAmBJ8Z4Guwz3iPJ2h3Kmkk1N3LvLvG1whO-SCWM~lPdzEeUlDr9tAmLa3e9RssQz4RD69uVLRGBf0b0mq3b6vn5YuPth3PFgY5w__"} style={style.thereserve}/>
+            <Image source={require("@/assets/images/pin.png")} style={style.pin2}/>
+      </Pressable>
+      </View> */}
+
 
       <ScrollView style={style.scroll}>
-        {/* <Pressable
-          onPress={onPressFunctionNight1}
-          style={style.nightgallerycontainer}
-        >
-          <Image
-            source={
-              "https://dza2a2ql7zktf.cloudfront.net/binaries-cdn/dqzqcuqf9/image/fetch/q_auto,dpr_auto,c_fill,f_auto,w_auto/https://d2u3kfwd92fzu7.cloudfront.net/asset/cms/Art_Basel_OVN_Los_Angeles_April_Bey_Gavlak1.jpg"
-            }
-            style={style.nightgallery}
-          />
-        </Pressable>
-        <Pressable
-          onPress={onPressFunctionReserve}
-          style={style.thereservecontainer}
-        >
-          <Image
-            source={
-              "https://images.squarespace-cdn.com/content/v1/58d2c08f725e25221a206ef3/1583285753191-T3MFQ3RKSR1L2I73YQVQ/the-reserve_21743836568_o.jpg"
-            }
-            style={style.thereserve}
-          />
-        </Pressable>
-        <Pressable onPress={onPressFunctionPlaza} style={style.plazacontainer}>
-          <Image
-            source={
-              "https://live.staticflickr.com/3545/3636659323_b5e1a226d4_b.jpg"
-            }
-            style={style.plaza}
-          />
-        </Pressable>
-        <Pressable onPress={onPressFunctionPark} style={style.parkcontainer}>
-          <Image
-            source={
-              "https://farm8.staticflickr.com/7027/6534189599_6d7f9f6c8b_z.jpg"
-            }
-            style={style.park}
-          />
-        </Pressable>
-        <Pressable
-          onPress={onPressFunctionBakery}
-          style={style.bakerycontainer}
-        >
-          <Image
-            source={
-              "https://lh3.googleusercontent.com/p/AF1QipM_wqdl2lUk_ggFqC_gRC34MFj2ufYIPKeUuANH=s1360-w1360-h1020"
-            }
-            style={style.bakery}
-          />
-        </Pressable>
-        <Pressable onPress={onPressFunctionMusic} style={style.musiccontainer}>
-          <Image
-            source={
-              "https://www.musiccenter.org/media/intjb04g/mtf.jpeg?anchor=center&mode=crop&width=1920&height=1080&rnd=132815648649270000"
-            }
-            style={style.music}
-          />
-        </Pressable>
-        <Pressable onPress={onPressFunctionMaple} style={style.maplecontainer}>
-          <Image
-            source={
-              "https://images1.loopnet.com/i2/x8wwn4HHearLbJ2DDj0kbzSIdVYiDVHGHUI_kjRXumk/110/401-E-12th-St-Los-Angeles-CA-401-E-12th-St-1-Large.jpg"
-            }
-            style={style.maple}
-          />
-        </Pressable>
-        <Pressable
-          onPress={onPressFunctionFlowers}
-          style={style.flowercontainer}
-        >
-          <Image
-            source={
-              "https://lh3.googleusercontent.com/p/AF1QipPte9Zh6dLy7_ZhVxPlPveeOJ80VhPnq9FsCH_A=s1360-w1360-h1020"
-            }
-            style={style.flower}
-          />
-        </Pressable> */}
-
         {foodActive && <Foodhome />}
         {artActive && <ArtHome />}
         {historyActive && <HistoryHome />}
+        {parksActive && <Parkshome />}
+        {sightActive && <Sighthome />}
+        {nightActive && <Nighthome />}
+        {shoppingActive && <Shophome />}
+        {musicActive && <Musichome />}
       </ScrollView>
     </View>
   );
@@ -254,11 +225,31 @@ const style = StyleSheet.create({
     position: "absolute",
   },
 
+  // pin: {
+  //   width: 37,
+  //   height: 37,
+  //   top: 15,
+  //   left: 145,
+  //   position: "absolute",
+  // },
+
+  // pincontainer: {
+  //   height: 200,
+  // },
+
+  // pin2: {
+  //   width: 37,
+  //   height: 37,
+  //   top: 15,
+  //   left: 380,
+  //   position: "absolute",
+  // },
+
   profile: {
     width: 43,
     height: 43,
-    // marginTop: 70.5,
-    // marginLeft: 380,
+    marginTop: 70.5,
+    marginLeft: 380,
     position: "absolute",
   },
 
@@ -289,13 +280,14 @@ const style = StyleSheet.create({
   bcontainer: {
     width: 70,
     height: 37,
-    marginTop: 143,
+    top: 143,
     marginLeft: 10,
     backgroundColor: "#000000",
     borderRadius: 10,
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
+    zIndex: 2,
   },
 
   fcontainer: {
@@ -350,34 +342,35 @@ const style = StyleSheet.create({
     color: "#FFFFFF",
   },
 
-  nightgallery: {
-    marginTop: 5,
-    width: 246,
-    height: 288,
-    borderWidth: 0,
-    borderRadius: 8,
-    // position: "absolute",
-  },
+  // nightgallery: {
+  //   marginTop: 5,
+  //   width: 150,
+  //   height: 196,
+  //   borderWidth: 5,
+  //   borderRadius: 8,
+  //   borderColor: "#FFD745",
+  //   position: "absolute",
+  // },
 
-  nightgallerycontainer: {
-    // marginTop: 6,
-    width: 246,
-    height: 288,
-    borderWidth: 0,
-    borderRadius: 8,
-    // position: "absolute",
-  },
+  // nightgallerycontainer: {
+  //   width: 150,
+  //   height: 196,
+  //   borderWidth: 0,
+  //   borderRadius: 8,
+  //   position: "absolute",
+  // },
 
-  thereserve: {
-    // flexShrink: 0,
-    marginTop: 0,
-    marginLeft: 0,
-    width: 246,
-    height: 288,
-    borderWidth: 0,
-    borderRadius: 8,
-    position: "absolute",
-  },
+  // thereserve: {
+  //   marginTop: 0,
+  //   left: 250,
+  //   top: 4,
+  //   width: 179,
+  //   height: 197,
+  //   borderWidth: 5,
+  //   borderRadius: 8,
+  //   borderColor: "#FFD745",
+  //   position: "absolute",
+  // },
 
   home: {
     // marginTop: 100,
@@ -395,8 +388,8 @@ const style = StyleSheet.create({
   thereservecontainer: {
     marginTop: 5,
     marginLeft: 251,
-    width: 246,
-    height: 288,
+    width: 179,
+    height: 242,
     borderWidth: 0,
     borderRadius: 8,
     position: "absolute",
@@ -443,7 +436,7 @@ const style = StyleSheet.create({
   bakerycontainer: {
     width: 179,
     height: 308,
-    marginTop: 7,
+    marginTop: 0,
     borderRadius: 8,
   },
 

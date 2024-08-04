@@ -33,12 +33,12 @@ const VisitingPage = (props: VisitingPage) => {
     return (
         <View style={style.container}>
             <Image style={style.image} source={props.image}/>
-            <Pressable style={style.homearrow} onPress={onPressFunctionHomeArrow}>
+            {/* <Pressable style={style.homearrow} onPress={onPressFunctionHomeArrow}>
                 <Image source={require('@/assets/images/homearrow.png')} style={style.homearrow}/>
             </Pressable>
             <Pressable onPress={onPressFunctionBookmark}> 
             <Image source={require('@/assets/images/bookmark.png')} style={style.bookmark}/>
-            </Pressable>
+            </Pressable> */}
             <Text  style={props?.textStyle}> {props.title} </Text>
             <Text style={props?.descriptionStyle}> {props.text} </Text>
             <View>

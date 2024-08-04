@@ -9,7 +9,7 @@ import {
   Alert,
   Dimensions,
 } from "react-native";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, } from "react";
 import { router } from "expo-router";
 import VisitingPage from "@/components/VisitingPage";
 import { useCallback } from "react";
@@ -41,6 +41,10 @@ const imagesArray = [
   "https://static.frieze.com/files/event/main/20240119_NightGallery-WandaKoop-0160-4000px.jpg?VersionId=8j4n47mQ0IYMjhxtE58E7ZAHe3wA23fL",
 ];
 
+const onPressFunctionBookmark = () => {
+  Alert.alert("Bookmark Saved")
+};
+
 const nightgallery = () => {
   const scrollViewRef = useRef<ScrollView>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -56,14 +60,54 @@ const nightgallery = () => {
       scrollViewRef.current.scrollTo({ x: index * width, animated: true });
     }
   };
+
+  const onPressFunctionHomeArrow = () => { 
+    router.back()
+  };
+
+  const [index, setIndex] = useState(0);
+
   return (
     <View style={style.container}>
-      <CustomCarousel imageArray={imagesArray} />
-      <View></View>
+      <CustomCarousel imageArray={imagesArray} setIndex={setIndex} />
+        <Pressable style={style.homearrow} onPress={onPressFunctionHomeArrow}>
+        <Image
+          source={require("@/assets/images/homearrow.png")}
+          style={style.homearrow}
+        />
+      </Pressable>
+      <View
+        style={[
+          style.fullslide,
+          {
+            backgroundColor: index == 0 ? "white" : "rgba(255, 255, 255, 0.50)",
+          },
+        ]}
+      />
+      {/* <View style={style.halfslide} /> */}
+      <View
+        style={[
+          style.halfslide,
+          {
+            backgroundColor: index == 1 ? "white" : "rgba(255, 255, 255, 0.50)",
+          },
+        ]}
+      />
+      <View
+        style={[
+          style.halfslide2,
+          {
+            backgroundColor: index == 2 ? "white" : "rgba(255, 255, 255, 0.50)",
+          },
+        ]}
+      />
       <Image
         style={style.grad}
         source={require("@/assets/images/nightgradient.png")}
       />
+      <Pressable style={style.bookc} onPress={onPressFunctionBookmark}>
+        <Image source={require("@/assets/images/book.png")} style={style.book}/>
+      </Pressable>
       <Image
         style={style.stars}
         source={require("@/assets/images/nightstars.png")}
@@ -99,6 +143,33 @@ const style = StyleSheet.create({
   //   width: "100%",
   //   height: "100%",
   // },
+
+  homearrow: {
+    width: 43,
+    height: 43,
+    marginTop: 40,
+    marginBottom: 516,
+    marginLeft: 15,
+    borderWidth: 0,
+    position: "absolute",
+  },
+
+  bookc: {
+    width: 43,
+    height: 43,
+    marginTop: 0,
+    // left: 370,
+    // top: 619,
+    position: "absolute",
+  },
+  
+  book: {
+    width: 43,
+    height: 43,
+    left: 370,
+    top: 635,
+    position: "absolute",
+  },
 
   description: {
     color: "#FFFFFF",
@@ -143,13 +214,6 @@ const style = StyleSheet.create({
     marginLeft: 18,
     borderRadius: 12,
     backgroundColor: "#14959B",
-    position: "absolute",
-  },
-  bookmark: {
-    width: 43,
-    height: 43,
-    marginTop: 625,
-    marginLeft: 371,
     position: "absolute",
   },
 

@@ -16,22 +16,23 @@ import { router } from "expo-router";
 
 const CreateAccount = () => {
 
-  const onPressFunctionArrowCreate = () => {
+  const onPressFunctionBack = () => {
     console.log("Arrow Pressed");
     router.back();
   };
 
   const onPressFunctionCreate = () => {
-    router.replace("/categories");
+    router.push("/user");
   };
 
   return (
     <View style={style.signuppage}>
-      <View> 
-        <Pressable style={style.arrowc} onPress={onPressFunctionArrowCreate}>
-            <Image source={require("@/assets/images/arrow.png")} style={style.arrow}/>
-        </Pressable>
-      </View>
+      <Pressable onPress={onPressFunctionBack}>
+        <Image
+          source={require("@/assets/images/homearrow.png")}
+          style={style.arrow}
+        />
+      </Pressable>
       <Text style={style.header1}> Become a Xplorer  </Text>
       <Text style={style.header2}>
         {" "}
@@ -87,10 +88,11 @@ const style = StyleSheet.create({
   },
 
   arrow: {
-    marginLeft: 0, 
-    marginTop: 0, 
-    width: 57, 
-    height: 26,
+    marginLeft: 20,
+    marginTop: 66,
+    position: "absolute",
+    width: 43,
+    height: 43,
   },
 
   arrowc: {
@@ -102,9 +104,9 @@ const style = StyleSheet.create({
   },
   
   signuppage: {
-    backgroundColor: "white",
+    backgroundColor: "#FFFFFF",
     flex: 1,
-  },
+    },
 
   signbox: {
     justifyContent: "center",

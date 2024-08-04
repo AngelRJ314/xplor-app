@@ -5,6 +5,7 @@ import nightgallery from './nightgallery'
 import { Image } from 'expo-image'
 import HomeCatButtons from '@/components/HomeCatButtons'
 import Profile from './profile'
+
 const Foodhome = () => {
 
   const onPressFunctionHome = () => {

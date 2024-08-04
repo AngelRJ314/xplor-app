@@ -20,16 +20,19 @@ import {
         router.replace("/home");
       };
 
-    const onPressFunctionArrowCreate = () => {
+    const onPressFunctionBack = () => {
         console.log("Arrow Pressed");
         router.back();
       };
 
     return (
         <View style={style.container}>
-            <Pressable onPress={onPressFunctionArrowCreate}>
-                <Image source={require("@/assets/images/arrow.png")} style={style.arrow}/>
-            </Pressable>
+            <Pressable onPress={onPressFunctionBack}>
+        <Image
+          source={require("@/assets/images/homearrow.png")}
+          style={style.arrow}
+        />
+      </Pressable>
             <Text style={style.header}> Let's sign you in </Text>
             <Text style={style.header2}> Welcome Back! </Text>
             <Image source={require('@/assets/images/beglogo.png')} style={style.xplorContainer}/>
@@ -67,6 +70,14 @@ import {
       fontStyle: "normal",
       fontWeight: "bold",
       position: "absolute",
+    },
+
+    arrow: {
+      marginLeft: 20,
+      marginTop: 66,
+      position: "absolute",
+      width: 43,
+      height: 43,
     },
 
     gm: {
@@ -140,13 +151,13 @@ import {
         borderRadius: 12,
       },
 
-    arrow: {
-        marginLeft: 28, 
-        marginTop: 114, 
-        position: "absolute",  
-        width: 57, 
-        height: 26,
-      },
+    // arrow: {
+    //     marginLeft: 28, 
+    //     marginTop: 114, 
+    //     position: "absolute",  
+    //     width: 57, 
+    //     height: 26,
+    //   },
 
       user: {
         marginLeft: 18,

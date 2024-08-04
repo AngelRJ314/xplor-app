@@ -13,6 +13,7 @@ import VisitingPage from "./VisitingPage";
 
 interface CarouselProps {
   imageArray: string[];
+  setIndex: (i) => void;
 }
 
 function CustomCarousel(props: CarouselProps) {
@@ -28,7 +29,8 @@ function CustomCarousel(props: CarouselProps) {
         autoPlay={false}
         data={[...new Array(3).keys()]}
         scrollAnimationDuration={1000}
-        onSnapToItem={(index) => console.log("current index:", index)}
+        onSnapToItem={(index) => props.setIndex(index)}
+        // onProgressChange={(index) => props.setIndex(index)}
         renderItem={({ index }) => (
           <View
           // style={{
@@ -42,7 +44,7 @@ function CustomCarousel(props: CarouselProps) {
             {/* <Text style={{ textAlign: 'center', fontSize: 30 }}>
                             {index}
                         </Text> */}
-            <View
+            {/* <View
               style={[
                 style.fullslide,
                 {
@@ -68,7 +70,7 @@ function CustomCarousel(props: CarouselProps) {
                     index == 2 ? "white" : "rgba(255, 255, 255, 0.50)",
                 },
               ]}
-            />
+            /> */}
           </View>
         )}
       />
@@ -84,7 +86,7 @@ const style = StyleSheet.create({
     height: "100%",
   },
   fullslide: {
-    backgroundColor: "rgba(255, 255, 255, 0.50)",
+    // backgroundColor: "rgba(255, 255, 255, 0.50)",
     width: 57,
     height: 6,
     borderRadius: 100,
