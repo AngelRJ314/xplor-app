@@ -35,6 +35,12 @@ const onPressFunctionBookmark = () => {
 
 const reserve = () => {
 
+  const onPressFunctionBookmark = () => {  
+    setIsBookmarked(!isBookmarked);
+  };
+
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
   const [index, setIndex] = useState(0);
 
   return (
@@ -79,8 +85,9 @@ const reserve = () => {
       />
       <Text style={style.text}> The Reserve </Text>
       <Pressable style={style.bookc} onPress={onPressFunctionBookmark}>
-        <Image source={require("@/assets/images/book.png")} style={style.book}/>
-      </Pressable>
+          {isBookmarked? (<Image source={require("@/assets/images/bookmark.png")} style={style.book}/>)
+          : (<Image source={require("@/assets/images/book.png")} style={style.book}/>)}
+        </Pressable>
       <Image
         style={style.stars}
         source={require("@/assets/images/reservestar.png")}

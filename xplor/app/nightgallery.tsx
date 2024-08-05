@@ -65,6 +65,12 @@ const nightgallery = () => {
     router.back()
   };
 
+  const onPressFunctionBookmark = () => {  
+    setIsBookmarked(!isBookmarked);
+  };
+
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
   const [index, setIndex] = useState(0);
 
   return (
@@ -106,8 +112,9 @@ const nightgallery = () => {
         source={require("@/assets/images/nightgradient.png")}
       />
       <Pressable style={style.bookc} onPress={onPressFunctionBookmark}>
-        <Image source={require("@/assets/images/book.png")} style={style.book}/>
-      </Pressable>
+          {isBookmarked? (<Image source={require("@/assets/images/bookmark.png")} style={style.book}/>)
+          : (<Image source={require("@/assets/images/book.png")} style={style.book}/>)}
+        </Pressable>
       <Image
         style={style.stars}
         source={require("@/assets/images/nightstars.png")}

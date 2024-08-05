@@ -20,11 +20,14 @@ const imagesArray = [
     "https://tessa2.lapl.org/digital/api/singleitem/image/photos/112168/default.jpg",
   ];
 
-  const onPressFunctionBookmark = () => {
-    Alert.alert("Bookmark Saved")
-  };
 
 const plaza = () => {
+
+  const onPressFunctionBookmark = () => {  
+    setIsBookmarked(!isBookmarked);
+  };
+
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
     const [index, setIndex] = useState(0);
 
@@ -68,8 +71,9 @@ const plaza = () => {
         <Image style={style.grad} source={require("@/assets/images/plazagradient.png")}/> 
         <Text style={style.text}> Plaza Firehouse </Text>
         <Pressable style={style.bookc} onPress={onPressFunctionBookmark}>
-        <Image source={require("@/assets/images/book.png")} style={style.book}/>
-      </Pressable>
+          {isBookmarked? (<Image source={require("@/assets/images/bookmark.png")} style={style.book}/>)
+          : (<Image source={require("@/assets/images/book.png")} style={style.book}/>)}
+        </Pressable>
       <Image source={require("@/assets/images/plazastars.png")} style={style.stars}/>
         <Text style={style.description}> The Plaza Firehouse, a historic landmark in downtown LA, is notable for its 1884 architecture and role in the city's fire service history. Originally housing horse-drawn fire engines, it now offers visitors a glimpse into the past with its well-preserved interior, antique firefighting equipment, and exhibits on the evolution of firefighting in the region.
         </Text>

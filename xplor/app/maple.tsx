@@ -25,6 +25,12 @@ const onPressFunctionHomeArrow = () => {
 
 const maple = () => {
 
+  const onPressFunctionBookmark = () => {  
+    setIsBookmarked(!isBookmarked);
+  };
+
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
     const [index, setIndex] = useState(0);
 
     return (
@@ -64,7 +70,8 @@ const maple = () => {
         <Image style={style.grad} source={require("@/assets/images/maplegradient.png")}/> 
         <Text style={style.text}> Maple Plaza</Text>
         <Pressable style={style.bookc} onPress={onPressFunctionBookmark}>
-        <Image source={require("@/assets/images/book.png")} style={style.book}/>
+          {isBookmarked? (<Image source={require("@/assets/images/bookmark.png")} style={style.book}/>)
+          : (<Image source={require("@/assets/images/book.png")} style={style.book}/>)}
         </Pressable>
           <Text style={style.description}> Maple Plaza is a welcoming outdoor space located in downtown Los Angeles, offering a serene environment amidst the urban landscape. It features shaded seating areas, lush greenery, and possibly a fountain or artwork, providing a tranquil retreat for visitors. Maple Plaza serves as a gathering spot for relaxation, meetings, or simply enjoying a peaceful moment outdoors.
           </Text>

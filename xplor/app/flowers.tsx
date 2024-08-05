@@ -25,6 +25,12 @@ const onPressFunctionBookmark = () => {
 
 const flower = () => {
 
+  const onPressFunctionBookmark = () => {  
+    setIsBookmarked(!isBookmarked);
+  };
+
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
   const [index, setIndex] = useState(0);
 
     return (
@@ -64,8 +70,9 @@ const flower = () => {
         <Image style={style.grad} source={require("@/assets/images/flowersgradient.png")}/> 
         <Text style={style.text}> Los Angeles Flower District </Text>
         <Pressable style={style.bookc} onPress={onPressFunctionBookmark}>
-        <Image source={require("@/assets/images/book.png")} style={style.book}/>
-      </Pressable>
+          {isBookmarked? (<Image source={require("@/assets/images/bookmark.png")} style={style.book}/>)
+          : (<Image source={require("@/assets/images/book.png")} style={style.book}/>)}
+        </Pressable>
         <Image source={require("@/assets/images/flowerstars.png")} style={style.stars}/>
         <Text style={style.description}> The Los Angeles Flower District in downtown LA is a lively hub known for its vibrant atmosphere and diverse array of flowers, plants, and floral supplies. Spanning several blocks, it features both wholesale and retail vendors offering fresh-cut flowers, exotic plants, and decorative accessories. Popular among florists, event planners, and flower enthusiasts, it's renowned for its extensive selection and competitive prices, making it a must-visit for floral arrangements and gardening.
         </Text>

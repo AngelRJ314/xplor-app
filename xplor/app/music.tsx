@@ -20,13 +20,22 @@ const imagesArray = [
   "https://s3-alpha-sig.figma.com/img/3ef5/9011/9e846610fb52a37c92d689e5766b1c33?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Ir7XpEV5NgmeV7W02e44uMS7QVb7dldJML-CqoqfOPIbfGRgTauWabPxf~elIOzdc8yggEiUkfoaxy~lcx3H3bQLb204bNAGieVsrS2AfpaPIvFAa-JQsSwl5~QcpEbZ46oGAYJzv9hXueq4jOGTuTGQTJrQnfEiGGDWa~n-ZaPKQ-gkj4bpWB4oXuaT8ZsNW2I2c5fE2wlVHvhf0XqlL0J4tuDuVinkA20Bc6DXOfklOm0mTvw8LulRbQTO~6vQnHNPI~y-T54cUNUJ7kswVtytrkuOZAjDjCFu11i8ZaFNsiB4CXhnaDACTzPooTH1CQ1mA3IXGtEe2DKVQwDBPA__",
 ];
 
-const onPressFunctionBookmark = () => {
-  Alert.alert("Bookmark Saved")
-};
+
+
+
 
 const music = () => {
 
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const [selected, setSelected] = useState (false)
+
   const [index, setIndex] = useState(0);
+
+  const onPressFunctionBookmark = () => {
+    // Alert.alert("Bookmark Saved");
+    setIsBookmarked(!isBookmarked);
+  };
 
     return (
     <View style={style.container}>
@@ -66,7 +75,8 @@ const music = () => {
         <Image style={style.grad} source={require("@/assets/images/musicgradient.png")}/> 
         <Text style={style.text}> The Music Center </Text>
         <Pressable style={style.bookc} onPress={onPressFunctionBookmark}>
-          <Image source={require("@/assets/images/book.png")} style={style.book}/>
+          {isBookmarked? (<Image source={require("@/assets/images/bookmark.png")} style={style.book}/>)
+          : (<Image source={require("@/assets/images/book.png")} style={style.book}/>)}
         </Pressable>
         <Image source={require("@/assets/images/musicstars.png")} style={style.stars}/>
         <Text style={style.description}> The Music Center in downtown LA is a prestigious performing arts complex with iconic venues like Walt Disney Concert Hall and Ahmanson Theatre. Known for its cultural significance and architectural splendor, it hosts a wide range of performances, from symphonies and operas to ballets and Broadway shows, making it a vibrant hub for community engagement and artistic excellence.
@@ -127,6 +137,11 @@ const style = StyleSheet.create ({
         fontWeight: "bold",
         fontSize: 24,
         position: "absolute",
+    },
+
+    bookdark: {
+      color: "#000000"
+      // backgroundColor: "#000000"
     },
 
     bookc: {

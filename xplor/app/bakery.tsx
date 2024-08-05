@@ -25,6 +25,12 @@ const onPressFunctionHomeArrow = () => {
 };
 
 const reserve = () => {
+
+  const onPressFunctionBookmark = () => {  
+    setIsBookmarked(!isBookmarked);
+  };
+
+  const [isBookmarked, setIsBookmarked] = useState(false);
   
   const [index, setIndex] = useState(0)
 
@@ -61,7 +67,8 @@ const reserve = () => {
       />
         <Image style={style.grad} source={require("@/assets/images/bakerygradient.png")}/>
         <Pressable style={style.bookc} onPress={onPressFunctionBookmark}>
-        <Image source={require("@/assets/images/book.png")} style={style.book}/>
+          {isBookmarked? (<Image source={require("@/assets/images/bookmark.png")} style={style.book}/>)
+          : (<Image source={require("@/assets/images/book.png")} style={style.book}/>)}
         </Pressable>
         <Text style={style.text}> Queen's Bakery </Text>
         <Image source={require("@/assets/images/bakerystar.png")} style={style.stars}/>

@@ -19,11 +19,15 @@ const imagesArray = [
   "https://s3-alpha-sig.figma.com/img/4231/da5c/faf84f473bf9961fe0a9b24f1a228879?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cYVcf~agC1zmPgojMJnPPiv4Nps6ZhEhs9uDBZJ9zT~k~ExJOJSHaw7bKlSaSC-beMo350i1FW1gvpUsalBX2tP5A3WvvD2N-WFsnfuMTMLE~qPKT01yJ~QjXif06atF9022JcZBVmYPho0gutXXSGLva6io~EHXtB0AywKtbPWmBVHYufEWTTRBP7VNUqXjNSeaCsUMo~5NsNmmzuNmMXW37ZqFCskHkdF5-K49Y9MpqYL4oAZ0z4DmZYBqmXuFsiTWpT8GDYjZm70-SkZqoBeVVUESWBa8I5Wq9EuEv1oYqc-05jRdFMrohYBY7nKZVPd33IkLlsb9lejriZMisg__",
 ];
 
-const onPressFunctionBookmark = () => {
-  Alert.alert("Bookmark Saved")
-};
+
 
 const nightgallery = () => {
+
+  const onPressFunctionBookmark = () => {
+    setIsBookmarked(!isBookmarked);
+  };
+
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   const [index, setIndex] = useState(0);
 
@@ -66,8 +70,9 @@ const nightgallery = () => {
         <Text style={style.text}> Lower Angel's Point </Text>
           <Text style={style.description}> Lower Angel's Point in Elysian Park offers breathtaking views of the LA skyline and surrounding landscape. It's a popular spot for locals and tourists seeking panoramic vistas and a tranquil escape, featuring hiking trails and picnic areas for outdoor recreation and relaxation.
           </Text>
-        <Pressable style={style.bookc} onPress={onPressFunctionBookmark}>
-          <Image source={require("@/assets/images/book.png")} style={style.book}/>
+          <Pressable style={style.bookc} onPress={onPressFunctionBookmark}>
+          {isBookmarked? (<Image source={require("@/assets/images/bookmark.png")} style={style.book}/>)
+          : (<Image source={require("@/assets/images/book.png")} style={style.book}/>)}
         </Pressable>
         <Image source={require("@/assets/images/musicstars.png")} style={style.stars}/>
         <Pressable onPress={onPressFunctionLink} style={style.addresscontainer}>

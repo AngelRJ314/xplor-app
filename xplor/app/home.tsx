@@ -177,16 +177,16 @@ const home = () => {
           <ProPlus/>
         </ScrollView>
       </View>
-      {/* <View style={style.pincontainer}> 
-      <Pressable onPress={onPressFunctionNight1}>
+      <View style={style.pincontainer}> 
+      <Pressable onPress={onPressFunctionNight1} style={style.nightgallerycontainer}>
             <Image source={"https://dza2a2ql7zktf.cloudfront.net/binaries-cdn/dqzqcuqf9/image/fetch/q_auto,dpr_auto,c_fill,f_auto,w_auto/https://d2u3kfwd92fzu7.cloudfront.net/asset/cms/Art_Basel_OVN_Los_Angeles_April_Bey_Gavlak1.jpg"} style={style.nightgallery}/>
             <Image source={require("@/assets/images/pin.png")} style={style.pin}/>
       </Pressable>
-      <Pressable onPress={onPressFunctionReserve} style={style.bakerycontainer}>
+      <Pressable onPress={onPressFunctionReserve} style={style.thereservecontainer}>
             <Image source={"https://s3-alpha-sig.figma.com/img/3aeb/ba28/7694a93f688a677c0a740f556043e7ac?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Qp1zBJFGPw1QUCt6Jb6MITkoOuPHta5MOJnfbAKae8U1sKle27laP1~4P88sBxwBDCrj4UQduM5xhCW93psXLWRYJX9NV2XSux4I55c8n1csVFdJUNVUF2DRIRqXLEdtzVglSFEM-bJqVrMKcTDS1~-D9~C8i6IkCkpsyjLoDJfbKezaFZhopkj1WLdj1uJzR6-3lYc4UEaaQHqVBNAQfHzUE4nFXOXP8rJM6YxYxMOP5hR~qHBAmBJ8Z4Guwz3iPJ2h3Kmkk1N3LvLvG1whO-SCWM~lPdzEeUlDr9tAmLa3e9RssQz4RD69uVLRGBf0b0mq3b6vn5YuPth3PFgY5w__"} style={style.thereserve}/>
             <Image source={require("@/assets/images/pin.png")} style={style.pin2}/>
       </Pressable>
-      </View> */}
+      </View>
 
 
       <ScrollView style={style.scroll}>
@@ -225,25 +225,25 @@ const style = StyleSheet.create({
     position: "absolute",
   },
 
-  // pin: {
-  //   width: 37,
-  //   height: 37,
-  //   top: 15,
-  //   left: 145,
-  //   position: "absolute",
-  // },
+  pin: {
+    width: 37,
+    height: 37,
+    top: 12,
+    left: 105,
+    position: "absolute",
+  },
 
-  // pincontainer: {
-  //   height: 200,
-  // },
+  pincontainer: {
+    height: 200,
+  },
 
-  // pin2: {
-  //   width: 37,
-  //   height: 37,
-  //   top: 15,
-  //   left: 380,
-  //   position: "absolute",
-  // },
+  pin2: {
+    width: 37,
+    height: 37,
+    top: 8,
+    left: 135,
+    position: "absolute",
+  },
 
   profile: {
     width: 43,
@@ -342,35 +342,35 @@ const style = StyleSheet.create({
     color: "#FFFFFF",
   },
 
-  // nightgallery: {
-  //   marginTop: 5,
-  //   width: 150,
-  //   height: 196,
-  //   borderWidth: 5,
-  //   borderRadius: 8,
-  //   borderColor: "#FFD745",
-  //   position: "absolute",
-  // },
+  nightgallery: {
+    marginTop: 5,
+    width: 150,
+    height: 196,
+    borderWidth: 5,
+    borderRadius: 8,
+    borderColor: "#FFD745",
+    position: "absolute",
+  },
 
-  // nightgallerycontainer: {
-  //   width: 150,
-  //   height: 196,
-  //   borderWidth: 0,
-  //   borderRadius: 8,
-  //   position: "absolute",
-  // },
+  nightgallerycontainer: {
+    width: 150,
+    height: 196,
+    borderWidth: 0,
+    borderRadius: 8,
+    position: "absolute",
+  },
 
-  // thereserve: {
-  //   marginTop: 0,
-  //   left: 250,
-  //   top: 4,
-  //   width: 179,
-  //   height: 197,
-  //   borderWidth: 5,
-  //   borderRadius: 8,
-  //   borderColor: "#FFD745",
-  //   position: "absolute",
-  // },
+  thereserve: {
+    // marginTop: 0,
+    // left: 156,
+    // top: 4,
+    width: 179,
+    height: 197,
+    borderWidth: 5,
+    borderRadius: 8,
+    borderColor: "#FFD745",
+    position: "absolute",
+  },
 
   home: {
     // marginTop: 100,
@@ -386,10 +386,10 @@ const style = StyleSheet.create({
   },
 
   thereservecontainer: {
-    marginTop: 5,
-    marginLeft: 251,
+    top: 4,
+    left: 156,
     width: 179,
-    height: 242,
+    height: 197,
     borderWidth: 0,
     borderRadius: 8,
     position: "absolute",
