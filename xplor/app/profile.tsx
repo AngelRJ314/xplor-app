@@ -48,9 +48,9 @@ const Profile = () => {
                 <Pressable onPress={onPressFunctionReserve}>
                 <Image style={style.image} source={"https://images.squarespace-cdn.com/content/v1/58d2c08f725e25221a206ef3/1583285753191-T3MFQ3RKSR1L2I73YQVQ/the-reserve_21743836568_o.jpg"}/>
                 </Pressable>
-                <Pressable onPress={onPressFunctionMusic}>
+                {/* <Pressable onPress={onPressFunctionMusic}>
                     <Image style={style.musicimage} source={"https://www.musiccenter.org/media/intjb04g/mtf.jpeg?anchor=center&mode=crop&width=1920&height=1080&rnd=132815648649270000"}/>
-                </Pressable>
+                </Pressable> */}
                 <Pressable>
                     <Image/>
                 </Pressable>

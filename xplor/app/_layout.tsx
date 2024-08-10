@@ -30,10 +30,11 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        {/* <Stack.Screen name="(auth)" options={{ headerShown: false }} /> */}
         <Stack.Screen name="+not-found" />
-        <Stack.Screen name="categories" options={{ headerShown: false }}/>
+        {/* <Stack.Screen name="categories" options={{ headerShown: false }}/> */}
         <Stack.Screen name="index" options={{ headerShown: false }}/>
+        <Stack.Screen name="index2" options={{ headerShown: false }}/>
         <Stack.Screen name="home" options={{ headerShown: false }}/>
         <Stack.Screen name="nightgallery" options={{ headerShown: false }}/>
         <Stack.Screen name="reserve" options={{ headerShown: false }}/>

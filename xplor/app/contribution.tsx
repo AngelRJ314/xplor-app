@@ -41,12 +41,16 @@ const Contribution = () => {
       </Pressable>
       <Text style={style.header}> Add a place </Text>
       <Text style={style.header2}> Provide information about this place. We will look at your submit and it will be made public in our app. </Text>
+
       <Text style={style.p}> Place Name </Text>
-      <TextInput style={style.pninput}> </TextInput>
+      <TextInput style={style.pninput}> Plaza Firehouse </TextInput>
+
       <Text style={style.c}> Category </Text>
-      <TextInput style={style.cinput}> </TextInput>
+      <TextInput style={style.cinput}> History </TextInput>
+
       <Text style={style.a}> Address </Text>
-      <TextInput style={style.ainput}> </TextInput>
+      <TextInput style={style.ainput}> 501 N Los Angeles St, Los Angeles, CA, 90012 </TextInput>
+
       <Pressable onPress={onPressFunctionCam} style={style.camcon}>
         <Image source={require("@/assets/images/cam.png")} style={style.cam}/>
         <Text style={style.photo}> Add Photos</Text>
@@ -155,6 +159,8 @@ const style = StyleSheet.create({
     marginLeft: 18,
     width: 394,
     height: 68,
+    fontSize: 15,
+    fontWeight: "bold",
     position: "absolute"
   },
 
@@ -166,6 +172,8 @@ const style = StyleSheet.create({
     marginLeft: 18,
     width: 394,
     height: 68,
+    fontSize: 15,
+    fontWeight: "bold",
     position: "absolute"
   },
 
@@ -177,6 +185,8 @@ const style = StyleSheet.create({
     marginLeft: 18,
     width: 394,
     height: 68,
+    fontSize: 15,
+    fontWeight: "bold",
     position: "absolute"
   },
 

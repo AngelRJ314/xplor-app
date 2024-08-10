@@ -100,7 +100,7 @@ const home = () => {
 
   const onPressFunctionAll = () => {
     {
-      setAllActive(!allActive) 
+      setAllActive(!allActive);
       setArtActive(true);
       setFoodActive(true);
       setHistoryActive(true);
@@ -123,7 +123,7 @@ const home = () => {
     {
       // historyActive ? setHistoryActive(false) : setHistoryActive(true);
       setHistoryActive(!historyActive);
-    } 
+    }
   };
 
   const onPressFunctionArt = () => {
@@ -144,7 +144,7 @@ const home = () => {
     {
       // historyActive ? setHistoryActive(false) : setHistoryActive(true);
       setSightActive(!sightActive);
-    } 
+    }
   };
 
   return (
@@ -156,9 +156,7 @@ const home = () => {
         />
         <Text style={style.xplor}> Xplor </Text>
         {/* <ProPlus/> */}
-        <ScrollView
-          horizontal={true}
-        >
+        <ScrollView horizontal={true}>
           <Pressable onPress={onPressFunctionAll} style={style.bcontainer}>
             <Text style={style.text}> All </Text>
           </Pressable>
@@ -174,22 +172,45 @@ const home = () => {
           <Pressable onPress={onPressFunctionParks} style={style.pcontainer}>
             <Text style={style.text}> Parks </Text>
           </Pressable>
-          <ProPlus/>
+          <ProPlus />
         </ScrollView>
       </View>
-      <View style={style.pincontainer}> 
-      <Pressable onPress={onPressFunctionNight1} style={style.nightgallerycontainer}>
-            <Image source={"https://dza2a2ql7zktf.cloudfront.net/binaries-cdn/dqzqcuqf9/image/fetch/q_auto,dpr_auto,c_fill,f_auto,w_auto/https://d2u3kfwd92fzu7.cloudfront.net/asset/cms/Art_Basel_OVN_Los_Angeles_April_Bey_Gavlak1.jpg"} style={style.nightgallery}/>
-            <Image source={require("@/assets/images/pin.png")} style={style.pin}/>
-      </Pressable>
-      <Pressable onPress={onPressFunctionReserve} style={style.thereservecontainer}>
-            <Image source={"https://s3-alpha-sig.figma.com/img/3aeb/ba28/7694a93f688a677c0a740f556043e7ac?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Qp1zBJFGPw1QUCt6Jb6MITkoOuPHta5MOJnfbAKae8U1sKle27laP1~4P88sBxwBDCrj4UQduM5xhCW93psXLWRYJX9NV2XSux4I55c8n1csVFdJUNVUF2DRIRqXLEdtzVglSFEM-bJqVrMKcTDS1~-D9~C8i6IkCkpsyjLoDJfbKezaFZhopkj1WLdj1uJzR6-3lYc4UEaaQHqVBNAQfHzUE4nFXOXP8rJM6YxYxMOP5hR~qHBAmBJ8Z4Guwz3iPJ2h3Kmkk1N3LvLvG1whO-SCWM~lPdzEeUlDr9tAmLa3e9RssQz4RD69uVLRGBf0b0mq3b6vn5YuPth3PFgY5w__"} style={style.thereserve}/>
-            <Image source={require("@/assets/images/pin.png")} style={style.pin2}/>
-      </Pressable>
-      </View>
 
-
-      <ScrollView style={style.scroll}>
+        <View style={style.pincontainer}>
+          <ScrollView horizontal>
+          <Pressable
+            onPress={onPressFunctionNight1}
+            style={style.nightgallerycontainer}
+          >
+            <Image
+              source={
+                "https://dza2a2ql7zktf.cloudfront.net/binaries-cdn/dqzqcuqf9/image/fetch/q_auto,dpr_auto,c_fill,f_auto,w_auto/https://d2u3kfwd92fzu7.cloudfront.net/asset/cms/Art_Basel_OVN_Los_Angeles_April_Bey_Gavlak1.jpg"
+              }
+              style={style.nightgallery}
+            />
+            <Image
+              source={require("@/assets/images/pin.png")}
+              style={style.pin}
+            />
+          </Pressable>
+          <Pressable
+            onPress={onPressFunctionReserve}
+            style={style.thereservecontainer}
+          >
+            <Image
+              source={
+                "https://s3-alpha-sig.figma.com/img/3aeb/ba28/7694a93f688a677c0a740f556043e7ac?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Qp1zBJFGPw1QUCt6Jb6MITkoOuPHta5MOJnfbAKae8U1sKle27laP1~4P88sBxwBDCrj4UQduM5xhCW93psXLWRYJX9NV2XSux4I55c8n1csVFdJUNVUF2DRIRqXLEdtzVglSFEM-bJqVrMKcTDS1~-D9~C8i6IkCkpsyjLoDJfbKezaFZhopkj1WLdj1uJzR6-3lYc4UEaaQHqVBNAQfHzUE4nFXOXP8rJM6YxYxMOP5hR~qHBAmBJ8Z4Guwz3iPJ2h3Kmkk1N3LvLvG1whO-SCWM~lPdzEeUlDr9tAmLa3e9RssQz4RD69uVLRGBf0b0mq3b6vn5YuPth3PFgY5w__"
+              }
+              style={style.thereserve}
+            />
+            <Image
+              source={require("@/assets/images/pin.png")}
+              style={style.pin2}
+            />
+          </Pressable>
+          </ScrollView>
+        </View>
+        <ScrollView style={style.scroll}>
         {foodActive && <Foodhome />}
         {artActive && <ArtHome />}
         {historyActive && <HistoryHome />}
@@ -229,7 +250,7 @@ const style = StyleSheet.create({
     width: 37,
     height: 37,
     top: 12,
-    left: 105,
+    left: 155,
     position: "absolute",
   },
 
@@ -344,9 +365,10 @@ const style = StyleSheet.create({
 
   nightgallery: {
     marginTop: 5,
+    left: 50,
     width: 150,
     height: 196,
-    borderWidth: 5,
+    borderWidth: 4,
     borderRadius: 8,
     borderColor: "#FFD745",
     position: "absolute",
@@ -366,7 +388,7 @@ const style = StyleSheet.create({
     // top: 4,
     width: 179,
     height: 197,
-    borderWidth: 5,
+    borderWidth: 4,
     borderRadius: 8,
     borderColor: "#FFD745",
     position: "absolute",
@@ -387,7 +409,7 @@ const style = StyleSheet.create({
 
   thereservecontainer: {
     top: 4,
-    left: 156,
+    left: 206,
     width: 179,
     height: 197,
     borderWidth: 0,
